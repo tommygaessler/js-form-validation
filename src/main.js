@@ -12,10 +12,10 @@ function hideCallout() {
   $('small').css('display', 'none');
 }
 function showCallout(msg, selector) {
-  console.log(selector);
+
   $(selector).text(msg);
   $(selector).css('display', 'block');
-  setTimeout(hideCallout, 4000)
+  setTimeout(hideCallout, 4000);
 }
 
 function validateFirstName () {
@@ -25,17 +25,17 @@ function validateFirstName () {
 
   if (firstName === '')
   {
-    showCallout('Enter your first name', '.smallFirstName')
+    showCallout('Enter your first name', '.smallFirstName');
   }
 
   else if (firstName.length < firstNameMinLength)
   {
-    showCallout('Your first name is too short', '.smallFirstName')
+    showCallout('Your first name is too short', '.smallFirstName');
   }
 
   else if (firstName[0] !== firstName[0].toUpperCase())
   {
-    showCallout('Capitalize the first letter of your first name', '.smallFirstName')
+    showCallout('Capitalize the first letter of your first name', '.smallFirstName');
   }
 }
 
@@ -66,10 +66,6 @@ function validateEmail () {
   var at = email.indexOf('@');
   var dot = email.indexOf('.', at);
 
-  console.log('at'+at);
-  console.log('dot'+dot);
-
-  console.log(email);
   if (email === '')
   {
     showCallout('Enter your email', '.smallEmail');
@@ -78,7 +74,7 @@ function validateEmail () {
   {
     showCallout('Email is missing an @', '.smallEmail');
   }
-  else if (dot === at+1)
+  else if (dot === at + 1)
   {
     showCallout('. Cannot come right after @', '.smallEmail');
   }
@@ -87,7 +83,3 @@ function validateEmail () {
     showCallout('Missing content before @', '.smallEmail');
   }
 }
-
-// $('input').on('blur', function () {
-// console.log('test');
-// });
