@@ -5,6 +5,7 @@ $(document).on('ready', function() {
     validateFirstName();
     validateLastName();
     validateEmail();
+    validateUsername();
   });
 });
 
@@ -81,5 +82,14 @@ function validateEmail () {
   else if (at === 0)
   {
     showCallout('Missing content before @', '.smallEmail');
+  }
+}
+
+function validateUsername () {
+  var username = $('#username').val();
+
+  if (username === '')
+  {
+    showCallout('Enter your username', '.smallUsername');
   }
 }
