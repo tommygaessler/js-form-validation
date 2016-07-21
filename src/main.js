@@ -15,7 +15,7 @@ function showCallout(msg, selector) {
   console.log(selector);
   $(selector).text(msg);
   $(selector).css('display', 'block');
-  setTimeout(hideCallout, 2000)
+  setTimeout(hideCallout, 4000)
 }
 
 function validateFirstName () {
@@ -70,17 +70,21 @@ function validateEmail () {
   console.log('dot'+dot);
 
   console.log(email);
-  if (!email.includes('@'))
+  if (email === '')
+  {
+    showCallout('Enter your email', '.smallEmail');
+  }
+  else if (!email.includes('@'))
   {
     showCallout('Email is missing an @', '.smallEmail');
   }
   else if (dot === at+1)
   {
-    showCallout('@ is wrong', '.smallEmail');
+    showCallout('. Cannot come right after @', '.smallEmail');
   }
   else if (at === 0)
   {
-    showCallout('nothing before @', '.smallEmail');
+    showCallout('Missing content before @', '.smallEmail');
   }
 }
 
